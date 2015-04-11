@@ -33,9 +33,9 @@ public class ServletTest extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        String name, surname, email, text, temp;
+       // String name, surname, email, text, temp;
         System.out.println("Action='" + request.getParameter("action") + "'");
-        name = request.getParameter("name");
+      /*  name = request.getParameter("name");
         surname = request.getParameter("surname");
         email = request.getParameter("email");
         text = request.getParameter("text");
@@ -72,9 +72,18 @@ public class ServletTest extends HttpServlet {
 
         if (success)
             helloService.Save(ps1);
-
-        request.setAttribute("infoMessage", temp);
-        RequestDispatcher resultView = request.getRequestDispatcher("index.jsp");
-        resultView.forward(request, response);
+*/
+        request.setAttribute("infoMessage","");
+        String str1 = request.getParameter("action");
+        if (str1.equals("Register")){
+            RequestDispatcher resultView = request.getRequestDispatcher("index2.jsp");
+            resultView.forward(request, response);}
+        if (str1.equals("Back")){
+            RequestDispatcher resultView = request.getRequestDispatcher("index.jsp");
+            resultView.forward(request, response);}
+        if (str1.equals("Send")){
+            RequestDispatcher resultView = request.getRequestDispatcher("index3.jsp");
+            resultView.forward(request, response);}
     }
+
 }
